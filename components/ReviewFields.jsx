@@ -12,64 +12,57 @@ export default function ReviewFields({
 
   useEffect(() => {
 
-    if (!extractedData) {
-      setFields([]);
-      return;
-    }
+  if (!extractedData) {
+    setFields([]);
+    return;
+  }
 
-    // Gemini new response:
-    // {
-    //   fields:[
-    //     {name:"Address", value:"..."},
-    //     {name:"Price", value:"..."}
-    //   ]
-    // }
 
-    if (Array.isArray(extractedData.fields)) {
-
-      setFields(
-        extractedData.fields.map(item => ({
-
-          name:
-            item.name || "",
-
-          value:
-            item.value || ""
-
-        }))
-      );
-
-      return;
-
-    }
-
-    // fallback for old Gemini format
-
-    const converted =
-      Object.entries(extractedData)
-        .filter(
-          ([key]) =>
-            key !== "error"
-        )
-        .map(
-          ([key, value]) => ({
-
-            name: key,
-
-            value:
-              Array.isArray(value)
-                ? value.join(", ")
-                : String(value ?? "")
-
-          })
-        );
+  // If data is already an array
+  if (Array.isArray(extractedData)) {
 
     setFields(
-      converted
+      extractedData.map(item => ({
+        name: String(item.name ?? ""),
+        value: String(item.value ?? "")
+      }))
     );
 
-  }, [extractedData]);
+    return;
+  }
 
+
+  // Gemini new response
+  if (Array.isArray(extractedData.fields)) {
+
+    setFields(
+      extractedData.fields.map(item => ({
+        name: String(item.name ?? ""),
+        value: String(item.value ?? "")
+      }))
+    );
+
+    return;
+  }
+
+
+  // Old Gemini format fallback
+
+  const converted =
+    Object.entries(extractedData)
+      .filter(([key]) => key !== "error")
+      .map(([key, value]) => ({
+        name: key,
+        value: Array.isArray(value)
+          ? value.join(", ")
+          : String(value ?? "")
+      }));
+
+
+  setFields(converted);
+
+
+}, [extractedData]);
 
 
   function updateField(index, key, value) {
@@ -371,17 +364,25 @@ export default function ReviewFields({
 
             <button
 
-              onClick={() => onContinue(fields)}
+            onClick={() =>
+              onContinue(
+                fields.map(field => ({
+                  name: String(field.name),
+                  value: String(field.value)
+                }))
+              )
+            }
 
-              className="w-full mt-5 py-4 rounded-2xl text-white text-base font-bold tracking-wide transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-blue-300"
-              style={{
-                background:
-                  "linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)",
-              }}
+            className="w-full mt-5 py-4 rounded-2xl text-white text-base font-bold tracking-wide transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-blue-300"
 
-            >
-              Continue →
-            </button>
+            style={{
+              background:
+                "linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)",
+            }}
+
+          >
+            Continue →
+</button>
 
           </div>
 

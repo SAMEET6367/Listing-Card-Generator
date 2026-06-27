@@ -208,7 +208,7 @@ export async function POST(req) {
 
     return NextResponse.json(
       {
-        error: error.message,
+         error: "AI Agent is currently busy. Please try again in a few moments."
       },
       {
         status: 500,
