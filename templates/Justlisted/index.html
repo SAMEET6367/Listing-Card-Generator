@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Just Listed | Luxury Property Flyer</title>
+
+  <!-- Editorial serif + clean sans pairing -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- PAGE: neutral preview backdrop, not part of the printed flyer -->
+  <div class="page">
+
+    <article class="flyer">
+
+      <!-- ============================================ -->
+      <!-- TOP LABEL                                     -->
+      <!-- ============================================ -->
+      <header class="flyer-header">
+        <div class="tape" aria-hidden="true"></div>
+        <div class="label">
+          <!-- AI INSERT: LISTING STATUS (e.g. JUST LISTED / NEW LISTING / OPEN HOUSE) -->
+          <span class="label-text">Just Listed</span>
+        </div>
+      </header>
+
+      <!-- ============================================ -->
+      <!-- HERO IMAGE                                    -->
+      <!-- ============================================ -->
+      <section class="hero">
+        <!-- AI INSERT: HERO IMAGE -->
+        <img
+          class="hero-image"
+          src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1600&q=80"
+          alt="Exterior view of the listed property"
+        />
+      </section>
+
+      <!-- ============================================ -->
+      <!-- MAIN CONTENT GRID                             -->
+      <!-- ============================================ -->
+      <main class="main-grid">
+
+        <!-- LEFT: gallery column -->
+        <aside class="gallery-column">
+          <!-- AI INSERT: INTERIOR IMAGE -->
+          <img
+            class="gallery-image gallery-image--living"
+            src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80"
+            alt="Living room interior"
+          />
+          <!-- AI INSERT: BEDROOM IMAGE -->
+          <img
+            class="gallery-image gallery-image--bedroom"
+            src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=900&q=80"
+            alt="Primary bedroom"
+          />
+        </aside>
+
+        <!-- RIGHT: property details column -->
+        <section class="property-details">
+
+          <!-- AI INSERT: ADDRESS -->
+          <div class="address">
+            <h1 class="address-street">1234 Oakwood Drive</h1>
+            <p class="address-city">Beverly Hills, California</p>
+          </div>
+
+          <!-- AI INSERT: PROPERTY FEATURES -->
+          <ul class="property-icons">
+            <li class="icon-item">
+              <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                <path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6" />
+                <path d="M3 18h18" />
+                <path d="M5 10V7a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v3" />
+                <circle cx="7.5" cy="8.5" r="0.6" fill="currentColor" stroke="none" />
+              </svg>
+              <span class="icon-value">5</span>
+              <span class="icon-label">Beds</span>
+            </li>
+            <li class="icon-item">
+              <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                <path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-3Z" />
+                <path d="M7 12V6a2 2 0 0 1 3.6-1.2" />
+                <path d="M4 12V9a1 1 0 0 1 1-1" />
+                <path d="M9 19v2M15 19v2" />
+              </svg>
+              <span class="icon-value">4</span>
+              <span class="icon-label">Baths</span>
+            </li>
+            <li class="icon-item">
+              <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                <path d="M3 21V10l9-6 9 6v11" />
+                <path d="M6 21v-8h12v8" />
+                <path d="M9 21v-4h6v4" />
+              </svg>
+              <span class="icon-value">2</span>
+              <span class="icon-label">Garage</span>
+            </li>
+            <li class="icon-item">
+              <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                <path d="M4 4h16v16H4z" />
+                <path d="M4 9h4M4 15h4M20 9h-4M20 15h-4M9 4v4M15 4v4M9 20v-4M15 20v-4" />
+              </svg>
+              <span class="icon-value">3,850</span>
+              <span class="icon-label">Sq Ft</span>
+            </li>
+            <li class="icon-item">
+              <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v10M14.5 9.5c0-1.1-1.1-2-2.5-2s-2.5.9-2.5 2c0 1.1 1.1 1.6 2.5 2s2.5.9 2.5 2-1.1 2-2.5 2-2.5-.9-2.5-2" />
+              </svg>
+              <span class="icon-value">$1,895,000</span>
+              <span class="icon-label">Price</span>
+            </li>
+          </ul>
+
+          <!-- AI INSERT: DESCRIPTION -->
+          <p class="description">
+            Experience modern luxury living in this beautifully designed Beverly Hills residence.
+            Expansive open living spaces flow seamlessly into a gourmet chef's kitchen, while
+            spa-inspired bathrooms and refined finishes elevate every room. Walls of glass open to
+            a private outdoor terrace, creating effortless indoor-outdoor entertaining. Set on a
+            quiet, tree-lined street, this home delivers timeless architecture, premium craftsmanship,
+            and the privacy today's luxury lifestyle demands.
+          </p>
+
+          <!-- AI INSERT: AGENT -->
+          <footer class="agent-section">
+            <div class="divider-thin"></div>
+            <div class="agent-card">
+              <img
+                class="agent-photo"
+                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=300&q=80"
+                alt="Headshot of the listing agent"
+              />
+              <div class="agent-info">
+                <p class="agent-name">Sophia Bennett</p>
+                <p class="agent-brokerage">Sterling &amp; Co. Real Estate</p>
+                <ul class="contact-list">
+                  <li class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                      <path d="M5 4h3l2 5-2.2 1.4a11 11 0 0 0 5.8 5.8L15 14l5 2v3a2 2 0 0 1-2.2 2A16 16 0 0 1 3 5.2 2 2 0 0 1 5 4Z" />
+                    </svg>
+                    <span>(310) 555-0192</span>
+                  </li>
+                  <li class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                      <path d="M4 6h16v12H4z" />
+                      <path d="m4 7 8 6 8-6" />
+                    </svg>
+                    <span>sophia@sterlingco.com</span>
+                  </li>
+                  <li class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                      <circle cx="12" cy="12" r="8" />
+                      <path d="M4 12h16M12 4a13 13 0 0 1 0 16M12 4a13 13 0 0 0 0 16" />
+                    </svg>
+                    <span>sterlingco.com</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </footer>
+
+        </section>
+      </main>
+
+    </article>
+  </div>
+
+</body>
+</html>

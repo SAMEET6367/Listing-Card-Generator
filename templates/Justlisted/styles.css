@@ -1,0 +1,341 @@
+/* ===================================================================
+   RESET
+=================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ===================================================================
+   VARIABLES
+=================================================================== */
+:root {
+  --primary: #202020;
+  --secondary: #6d6d6d;
+  --accent: #b89b5e;
+  --border: #e8e8e8;
+  --background: #ffffff;
+  --paper: #faf9f6;
+  --page-bg: #e9e9e7;
+
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-accent: "Cormorant Garamond", Georgia, serif;
+  --font-body: Helvetica, Arial, sans-serif;
+}
+
+/* ===================================================================
+   PAGE
+   Neutral preview backdrop. Not part of the printed flyer.
+=================================================================== */
+body {
+  background: var(--page-bg);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 48px 24px;
+}
+
+/* ===================================================================
+   FLYER
+   Fixed 1080 x 1350 proportions. container-type lets every internal
+   measurement (cqw) scale fluidly with the flyer's rendered width,
+   so the design scales as one piece instead of reflowing.
+=================================================================== */
+.flyer {
+  /* 1080:1350 is a tall portrait ratio, so it must be capped by
+     viewport height as well as width, or the bottom of the flyer
+     ends up cut off the screen and only visible by scrolling. */
+  width: min(1080px, 92vw, 73.6vh);
+  aspect-ratio: 1080 / 1350;
+  background: var(--background);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 12px 32px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  container-type: inline-size;
+  container-name: flyer;
+}
+
+/* ===================================================================
+   HEADER / TOP LABEL
+=================================================================== */
+.flyer-header {
+  position: relative;
+  padding-top: 5%;
+  padding-bottom: 2.4%;
+  display: flex;
+  justify-content: center;
+}
+
+.tape {
+  position: absolute;
+  top: 2.6%;
+  left: 50%;
+  width: 11%;
+  aspect-ratio: 3 / 1;
+  background: rgba(184, 155, 94, 0.16);
+  border: 1px solid rgba(184, 155, 94, 0.22);
+  transform: translateX(-50%) rotate(-3deg);
+}
+
+.label {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  padding: 1.3% 6.5%;
+}
+
+.label-text {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 2.7cqw;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--primary);
+  text-align: center;
+}
+
+/* ===================================================================
+   HERO
+=================================================================== */
+.hero {
+  width: 100%;
+  height: 30%;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+}
+
+/* ===================================================================
+   MAIN GRID
+=================================================================== */
+.main-grid {
+  flex: 1;
+  min-height: 0; /* without this, grid rows grow to fit content even
+                    when the parent's height is fixed, and the overflow
+                    gets silently clipped at the flyer's edge */
+  display: grid;
+  grid-template-columns: 42% 58%;
+  column-gap: 5%;
+  padding: 4% 7% 5% 7%;
+}
+
+/* ===================================================================
+   GALLERY COLUMN (left)
+=================================================================== */
+.gallery-column {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 4%;
+}
+
+.gallery-image--living {
+  flex: 1.7 1 0;
+  min-height: 0;
+  height: auto;
+}
+
+.gallery-image--bedroom {
+  flex: 1 1 0;
+  min-height: 0;
+  height: auto;
+}
+
+/* ===================================================================
+   PROPERTY DETAILS (right)
+=================================================================== */
+.property-details {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Address ---- */
+.address {
+  text-align: center;
+  margin-bottom: 4%;
+}
+
+.address-street {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 3.2cqw;
+  color: var(--primary);
+  letter-spacing: 0.01em;
+}
+
+.address-city {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 1.7cqw;
+  color: var(--secondary);
+  margin-top: 2%;
+  letter-spacing: 0.03em;
+}
+
+/* ---- Property feature icons ---- */
+.property-icons {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 4%;
+  margin-bottom: 4%;
+  border-bottom: 1px solid var(--border);
+}
+
+.icon-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 9%;
+}
+
+.icon-svg {
+  width: 13cqw;
+  height: 13cqw;
+  max-width: 22px;
+  max-height: 22px;
+  color: var(--accent);
+}
+
+.icon-value {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.55cqw;
+  color: var(--primary);
+  letter-spacing: 0.01em;
+}
+
+.icon-label {
+  font-family: var(--font-body);
+  font-size: 0.95cqw;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ---- Description ---- */
+.description {
+  flex: 1;
+  min-height: 0;
+  font-family: var(--font-body);
+  font-size: 1.35cqw;
+  line-height: 1.75;
+  color: var(--primary);
+  text-align: left;
+  overflow: hidden;
+}
+
+/* ===================================================================
+   AGENT SECTION
+=================================================================== */
+.agent-section {
+  flex-shrink: 0;
+  margin-top: auto;
+  padding-top: 4%;
+}
+
+.divider-thin {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  margin-bottom: 6%;
+}
+
+.agent-card {
+  display: flex;
+  align-items: center;
+  gap: 6%;
+}
+
+.agent-photo {
+  width: 17%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.agent-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5%;
+}
+
+.agent-name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.75cqw;
+  color: var(--primary);
+}
+
+.agent-brokerage {
+  font-family: var(--font-body);
+  font-size: 1.1cqw;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 1%;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2%;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 2%;
+  font-family: var(--font-body);
+  font-size: 1cqw;
+  color: var(--secondary);
+}
+
+.contact-icon {
+  width: 5.5cqw;
+  height: 5.5cqw;
+  max-width: 13px;
+  max-height: 13px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ===================================================================
+   RESPONSIVE PREVIEW
+   The flyer scales as a single fluid object via container query
+   units; no breakpoint-based redesign is needed.
+=================================================================== */
+@media (max-width: 480px) {
+  .page {
+    padding: 24px 16px;
+  }
+
+  .flyer {
+    width: 100%;
+  }
+}
